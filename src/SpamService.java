@@ -32,6 +32,12 @@ public class SpamService {
             return new SpamProbability(0.0);
         }
 
+        // Technically, an email that just contains of whitespace can be considered spam, but because
+        // we are using Jaccard similarity and splitting on whitespace, we can (or must) ignore these emails.
+        if (targetEmail.Content().trim().isEmpty()) {
+            return new SpamProbability(0.0);
+        }
+
         double totalSimilarity = 0.0;
 
         for (Email email : emails) {
