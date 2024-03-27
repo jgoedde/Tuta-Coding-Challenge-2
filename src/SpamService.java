@@ -28,6 +28,10 @@ public class SpamService {
     }
 
     private SpamProbability calculateSpamProbability(Email targetEmail, List<Email> emails) {
+        if (emails.size() == 1) {
+            return new SpamProbability(0.0);
+        }
+
         double totalSimilarity = 0.0;
 
         for (Email email : emails) {
