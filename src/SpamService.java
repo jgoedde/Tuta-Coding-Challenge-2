@@ -43,6 +43,12 @@ public class SpamService {
     }
 
     private double calculateJaccardSimilarity(String text1, String text2) {
+        if (text1.isEmpty() && text2.isEmpty()) {
+            return 1.0; // Both texts are empty, indicating complete similarity
+        } else if (text1.equals(text2)) {
+            return 1.0; // Both texts are identical, indicating complete similarity
+        }
+
         Set<String> words1 = new HashSet<>(Arrays.asList(text1.split(" ")));
         Set<String> words2 = new HashSet<>(Arrays.asList(text2.split(" ")));
 
