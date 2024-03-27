@@ -27,33 +27,6 @@ public class SpamService {
                         (e1, e2) -> e1, LinkedHashMap::new));
     }
 
-    public static List<Email> generateDummyMails() {
-        List<Email> emails = new ArrayList<>();
-
-        emails.add(new Email(1, "Hello, how are you, John?"));
-        emails.add(new Email(2, "Hello, how are you, Joe?"));
-        emails.add(new Email(3, "Hello, how are you, Peter?"));
-        emails.add(new Email(4, "Hello, how are you, Pete?"));
-        emails.add(new Email(5, "How are you?"));
-        emails.add(new Email(6, "Hello Pete, how are you?"));
-        emails.add(new Email(69, "Guten Morgen, wie geht es Ihnen?"));
-
-        int count = 15;
-        for (int i = 0; i < count; i++) {
-            emails.add(new Email(i + 29032, "Buy some viagra"));
-        }
-
-        for (int i = 0; i < count; i++) {
-            emails.add(new Email(i + 222, "Buy some cialis"));
-        }
-
-        for (int i = 0; i < count; i++) {
-            emails.add(new Email(i + 1212, "Buy some viagra " + i));
-        }
-
-        return emails;
-    }
-
     private SpamProbability calculateSpamProbability(Email targetEmail, List<Email> emails) {
         double totalSimilarity = 0.0;
 
